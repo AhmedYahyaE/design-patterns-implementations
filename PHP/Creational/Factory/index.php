@@ -56,13 +56,13 @@ abstract class VehicleFactory {
 
 // ConcreteCreator - CarFactory
 class CarFactory extends VehicleFactory {
-    public function createVehicle(): Vehicle {
+    public function createVehicle(): Vehicle { // Vehicle interface type
         return new Car();
     }
 }
 
 // Another ConcreteCreator - BicycleFactory
-class BicycleFactory extends VehicleFactory {
+class BicycleFactory extends VehicleFactory { // Vehicle interface type
     public function createVehicle(): Vehicle {
         return new Bicycle();
     }
