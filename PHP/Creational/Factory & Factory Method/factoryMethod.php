@@ -3,6 +3,20 @@
     The Factory pattern is a creational design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created. Its purpose is to create objects without specifying the exact class of object that will be created, allowing for flexibility and abstraction in object creation.
 */
 
+/*
+    Difference between Factory Method desing pattern Vs. Factory design pattern:
+        The Factory Method design pattern is a specific implementation of the Factory pattern. It defines an interface for creating an object, but it lets the subclasses decide which class to instantiate. This pattern promotes the idea of creating objects through inheritance. It involves creating an interface (or an abstract class) with a method (the factory method) that subclasses implement to produce objects.
+        The Factory        design pattern is a creational pattern that aims to create objects without specifying the exact class of the object that will be created. It provides an interface for creating objects in a superclass but allows the subclasses to alter the type of objects that will be created. This pattern includes a factory class that has a method responsible for creating objects based on a certain condition or input.
+        In essence, the Factory Method pattern is a particular implementation of the broader Factory pattern. The Factory Method focuses on creating instances of classes through inheritance, allowing subclasses to define the actual objects created, while the Factory pattern delegates the responsibility of creating objects to a separate factory class, providing a more centralized creation mechanism.
+*/
+
+/*
+    Explanation of the difference:
+        In the Factory Design Pattern example, the VehicleFactory class directly creates different types of vehicles based on a parameter passed to the createVehicle method.
+        In contrast, the Factory Method Design Pattern splits the creation process into separate classes (CarFactory, BikeFactory) implementing the VehicleFactory interface. Each factory class is responsible for creating a specific type of vehicle.
+        Both patterns provide a way to create objects but differ in their implementation approaches: the Factory Pattern uses a centralized factory class to create objects based on input parameters, while the Factory Method Pattern delegates object creation to separate subclasses implementing a factory method for creating specific types of objects.
+*/
+
 /* Purpose:
     Create objects without specifying the exact class of object that will be created, allowing for flexibility and abstraction in object creation.
 
@@ -45,7 +59,7 @@ class Bicycle implements Vehicle {
 
 // Creator abstract class or interface - VehicleFactory
 abstract class VehicleFactory {
-    abstract public function createVehicle(): Vehicle;
+    abstract public function createVehicle(): Vehicle; // The Factory Method
     
     public function startDriving(): void {
         $vehicle = $this->createVehicle();
@@ -62,8 +76,8 @@ class CarFactory extends VehicleFactory {
 }
 
 // Another ConcreteCreator - BicycleFactory
-class BicycleFactory extends VehicleFactory { // Vehicle interface type
-    public function createVehicle(): Vehicle {
+class BicycleFactory extends VehicleFactory {
+    public function createVehicle(): Vehicle { // Vehicle interface type
         return new Bicycle();
     }
 }
