@@ -27,7 +27,7 @@
     5) Support for Extensibility: The Factory pattern allows easy extension by adding new subclasses without modifying existing client code. This makes it convenient to incorporate new types of objects or variations without affecting the overall system.
 */
 
-/* Structure:
+/* Structure/Components:
     1) Creator abstract class or interface: This is the superclass that declares the factory method. It provides an interface for creating objects but doesn't specify the exact objects that will be created.
     2) Concrete Creator: Subclasses of the Creator implement the factory method to produce specific types of objects.
     3) Product Interface: The interface or abstract class for the objects created by the factory method.
@@ -84,7 +84,7 @@ class BicycleFactory extends VehicleFactory {
 
 
 
-// Implementation (Client code / Usage):
+// Implementation / Client code / Usage:
 $carFactory = new CarFactory();
 $carFactory->startDriving(); // Output: Driving a car...
 

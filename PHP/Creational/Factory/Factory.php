@@ -46,12 +46,9 @@ class Bicycle implements Vehicle {
 class VehicleFactory {
     public function createVehicle($type) {
         switch ($type) {
-            case 'car':
-                return new Car();
-            case 'bike':
-                return new Bicycle();
-            default:
-                throw new InvalidArgumentException("Invalid vehicle type");
+            case 'car' : return new Car();
+            case 'bike': return new Bicycle();
+            default    : throw new InvalidArgumentException("Invalid vehicle type");
         }
     }
 }
